@@ -1,0 +1,1 @@
+conda run -n ManTouAgent python main.py

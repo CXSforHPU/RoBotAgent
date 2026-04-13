@@ -1,0 +1,21 @@
+# python cache
+.idea/
+**/__pycache__/
+
+# config
+.env
+
+# .vscode
+.vscode/
+
+# uv venv
+.venv/
+
+# temp
+**/temp/
+
+# qq log
+botpy.log
+
+# workspace
+workspace
