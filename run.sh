@@ -1,1 +1,1 @@
-conda run -n ManTouAgent python main.py
+uv run python main.py

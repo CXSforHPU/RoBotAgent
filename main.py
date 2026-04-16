@@ -33,18 +33,18 @@ from agent.utils import (
 async def main():
     message_bus = MessageHub()
 
-    cli_channel = CLIChannel(
-        message_bus=message_bus
-    )
-    # qq_channel = QQChannel(
-    #     message_bus=message_bus,
+    # cli_channel = CLIChannel(
+    #     message_bus=message_bus
     # )
+    qq_channel = QQChannel(
+        message_bus=message_bus,
+    )
 
-    asyncio.create_task(cli_channel.start())
-    # asyncio.create_task(qq_channel.start(
-    #     appid=QQ_APP_ID,
-    #     secret=QQ_APP_SECRET,
-    # ))
+    # asyncio.create_task(cli_channel.start())
+    asyncio.create_task(qq_channel.start(
+        appid=QQ_APP_ID,
+        secret=QQ_APP_SECRET,
+    ))
 
     context = Context()
     loop = AgentLoop(
@@ -74,14 +74,14 @@ async def main():
                     content=content,
                 )
 
-                # if message.channel_type == MessageChannelType.QQ:
-                #     await qq_channel.send(
-                #         Message(
-                #             content=content[-1]["text"],
-                #             channel_type=MessageChannelType.Agent,
-                #             payload=message.payload
-                #         )
-                #     )
+                if message.channel_type == MessageChannelType.QQ:
+                    await qq_channel.send(
+                        Message(
+                            content=content[-1]["text"],
+                            channel_type=MessageChannelType.Agent,
+                            payload=message.payload
+                        )
+                    )
 
     except KeyboardInterrupt:
         pass

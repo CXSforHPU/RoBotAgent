@@ -11,6 +11,7 @@ dependencies = [
     "prompt-toolkit>=3.0.52",
     "python-dotenv>=1.2.2",
     "qq-botpy>=1.2.1",
+    "requests>=2.33.1",
 ]
 
 [tool.uv]

@@ -19,3 +19,6 @@ botpy.log
 
 # workspace
 workspace
+
+# catkin_ws
+catkin_ws/

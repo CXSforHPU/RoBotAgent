@@ -1,2 +1,1 @@
-call conda activate ManTouAgent
-python main.py
+uv run python main.py
