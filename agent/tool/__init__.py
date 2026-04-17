@@ -22,6 +22,12 @@ from agent.tool.weather_tool import (
 from agent.tool.MbotWebClient import (
     ArmControlTool
 )
+from agent.tool.SensorWebClient import (
+    SensorGetTool
+)
+from agent.tool.CameraWebClient import (
+    CameraGetTool
+)
 
 tool_registry = ToolRegistry()
 tool_registry.register(GetCurrentTime())
@@ -33,6 +39,11 @@ tool_registry.register(WebFetchTool())
 tool_registry.register(WeatherTool())
 
 tool_registry.register(ArmControlTool())
+
+tool_registry.register(SensorGetTool())
+
+tool_registry.register(CameraGetTool())
+
 
 tools = tool_registry.schema()
 

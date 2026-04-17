@@ -70,6 +70,7 @@ class AgentLoop:
                 ]
 
             for tool_call in response.tool_calls:
+                is_image = False
                 tool_call_id = tool_call["id"]
                 tool_name = tool_call["function"]["name"]
                 tool_arguments = tool_call["function"]["arguments"]
@@ -83,11 +84,20 @@ class AgentLoop:
                     str_result = str_result[:300] + "..."
                 print_tool_calls(str_result)
 
-                local_messages = self.__context.append_tool_message(
-                    messages=local_messages,
-                    tool_call_id=tool_call_id,
-                    content=tool_result
-                )
+                for i in tool_result:
+                    if i["type"] == "image_url":
+                        self.__context.append_user_message(
+                            local_messages,
+                            tool_result
+                        )
+                        is_image = True
+                
+                if not is_image:
+                    local_messages = self.__context.append_tool_message(
+                        messages=local_messages,
+                        tool_call_id=tool_call_id,
+                        content=tool_result
+                    )
 
         return [{
             "type": "text",

@@ -58,3 +58,7 @@ TEMP_PATH = ROOT_PATH / "temp"
 # MOTION CONFIGE
 MBOT_MOTION_URL=os.environ.get("MBOT_MOTION_URL", None)
 MBOT_MOTTION_PORT=os.environ.get("MBOT_MOTTION_PORT", None)
+SENSOR_PORT=os.environ.get("SENSOR_PORT", None)
+SENSOR_URL=os.environ.get("SENSOR_URL", None)
+CAMERA_PORT=os.environ.get("CAMERA_PORT", None)
+CAMERA_URL=os.environ.get("CAMERA_URL", None)
