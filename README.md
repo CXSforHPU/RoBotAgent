@@ -273,7 +273,7 @@ pip install uv
 ```
 2. 克隆项目
 ```bash
-git clone https://github.com/yourname/RoBotAgent.git
+git clone https://github.com/CXSforHPU/RoBotAgent.git
 cd RoBotAgent
 ```
 3. 配置环境变量
